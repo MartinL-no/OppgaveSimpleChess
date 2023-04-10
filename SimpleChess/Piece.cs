@@ -2,27 +2,18 @@
 
 namespace SimpleChess
 {
-    class Piece
+    namespace SimpleChess
     {
-        public string Symbol { get; }
-        private readonly string _type;
-
-        public Piece(string type, string symbol)
+        abstract class Piece
         {
-            _type = type;
-            Symbol = symbol;
-        }
+            public string Symbol { get; }
 
-        public bool Move(string fromPosition, string toPosition)
-        {
-            if (_type == "Rook") return fromPosition[0] == toPosition[0] || fromPosition[1] == toPosition[1];
-            if (_type == "Bishop")
+            protected Piece(string symbol)
             {
-                var diffCol = fromPosition[0] - toPosition[0];
-                var diffRow = fromPosition[1] - toPosition[1];
-                return Math.Abs(diffRow) == Math.Abs(diffCol);
+                Symbol = symbol;
             }
-            return true;
+
+            public abstract bool Move(string fromPosition, string toPosition);
         }
     }
 }
