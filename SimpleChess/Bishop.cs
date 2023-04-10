@@ -3,7 +3,7 @@ using SimpleChess.SimpleChess;
 
 namespace SimpleChess;
 
-internal class Bishop : Piece
+class Bishop : Piece
 {
     public Bishop() : base("LPR")
     {
